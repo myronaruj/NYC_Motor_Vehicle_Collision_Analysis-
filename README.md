@@ -106,10 +106,13 @@ factAccident is the fact table.
 
 **Insights**
 
-Majority of accidents occurred when number of occupant was one.
-Highest number of accidents with the greatest number of affected occupants happened in sedan and station wagon.
-Pedestrian/bicyclist confusion was the most contributing factor.
-Total fatality trend seems to be decreasing from Jan 2016 to Jan 2020.
+-Majority of accidents occurred when number of occupant was one.
+
+-Highest number of accidents with the greatest number of affected occupants happened in sedan and station wagon.
+
+-Pedestrian/bicyclist confusion was the most contributing factor.
+
+-Total fatality trend seems to be decreasing from Jan 2016 to Jan 2020.
 
 
 
