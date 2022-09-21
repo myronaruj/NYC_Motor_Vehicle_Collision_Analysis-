@@ -40,3 +40,78 @@ conditions.
 The data was extracted from visual crossing 
 Links: https://data.cityofnewyork.us/browse?Data-Collection_DataCollection=Motor+Vehicle+Collisions&limitTo=datasets&sortBy=most_accessed&utf8=%E2%9C%93
 https://www.visualcrossing.com/weather/weather-data-services/10466/metric/last15days
+
+
+
+![image](https://user-images.githubusercontent.com/29515861/191560281-62d00d9e-a44b-4f03-b4f5-de2149e5fab9.png)
+
+
+**Project Flow**
+
+The data is available in formats such CSV, Excel, JSON, XML etc. Primarily we are considering importing 
+form CSV file. In order to facilitate incremental data loading, we will divide the csv file in parts then 
+upload chronologically. We will be implementing different types of SCDs based on data requirements. 
+We are planning to import data using the SSIS package into the database. We will do the required 
+preprocessing like joining tables and eliminating columnar discrepancies and then store the cleaned data 
+in staging. We are also planning to maintain audit logs which will check for anomalies in data like zip 
+code in wrong format, null values, invalid formats. We will be creating the dim and the fact tables based 
+of the data sources. We will also be loading incremental data on monthly or quarterly basis and 
+implementing SCD along with error handling. Also, one of our goals would be automating the loading 
+activities.
+
+This will show general flow of the complete project.
+
+![image](https://user-images.githubusercontent.com/29515861/191560522-7f93f161-471d-4243-b24e-a7c686814278.png)
+
+**Data Model**
+
+Dimension modelling showing the relationship between the dim and fact tables.
+
+![data model](https://user-images.githubusercontent.com/29515861/191560761-59013b19-be1b-4fbd-8477-b1c0df8bd232.jpg)
+
+
+**Description**
+
+We have created a star schema with 7 dimension tables as shown in the above image with one fact table 
+in the center. The 7 dimension tables and fact tables are:
+1. dimCrash
+2. dimDate
+3. dimDriver
+4. dimLocation
+5. dimPerson
+6. dimVehicle
+7. dimWeather
+
+factAccident is the fact table.
+
+**Data Flow**
+
+![ssis package](https://user-images.githubusercontent.com/29515861/191561131-131374c6-077b-41cd-9035-cddfdf74af88.png)
+
+
+**Visualizations and Insights**
+
+![image](https://user-images.githubusercontent.com/29515861/191564254-dcc8eae2-a258-4e8d-b78e-72d9d6f96b36.png)
+
+![image](https://user-images.githubusercontent.com/29515861/191564369-d8aa8900-a399-4456-adf7-392bb5d69a93.png)
+
+![image](https://user-images.githubusercontent.com/29515861/191564533-ff5c73a8-386d-49e4-982a-e35f8e42a613.png)
+
+![image](https://user-images.githubusercontent.com/29515861/191564620-a9dea17d-53d3-4ae1-833d-db2b9434a5c3.png)
+
+![image](https://user-images.githubusercontent.com/29515861/191564751-75c31600-efee-4071-9c35-b3559b96cc06.png)
+
+![image](https://user-images.githubusercontent.com/29515861/191564825-a95dbc91-509f-4baa-a6d0-39b299c3916b.png)
+
+
+**Insights**
+
+Majority of accidents occurred when number of occupant was one 
+Highest number of accidents with the greatest number of affected occupants happened in sedan and station wagon.
+Pedestrian/bicyclist confusion was the most contributing factor 
+Total fatality trend seems to be decreasing from Jan 2016 to Jan 2020
+
+
+
+
+
